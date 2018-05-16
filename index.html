@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>jQuery Gem Game</title>
+
+<!-- Added link to the jQuery Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Added a link to Bootstrap-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+</head>
+<body>
+
+<!-- Jumbotron for Title -->
+<div class="jumbotron">
+<h1 class="text-center">Gem Game</h1>
+<h3 class="text-center">Number</h3>
+</div>
+
+<div class="container">
+
+<div class="row">
+
+<!-- Calculator Panel -->
+<div class="col-lg-5">
+<div class="card">
+<h3 class="card-header">Krystal collector</h3>
+
+<div class="card-body">
+
+                        <!-- assign random number to first gem-->
+                        <button id="button-1" class="btn btn-primary number"  onClick="javascript:close_clip()"><img src="/Users/txivojuarezlap/Desktop/bootcamp copy/TECMON201804FSF2-Class-Repository-FSF/04-Week/Homework/unit-4-game/Assets/Images/red.jpg" ></button>
+
+                        <!-- assign random number to second gem-->
+                        <button id="button-2" class="btn btn-primary number" onClick="javascript:close_clip()"><img src="/Users/txivojuarezlap/Desktop/bootcamp copy/TECMON201804FSF2-Class-Repository-FSF/04-Week/Homework/unit-4-game/Assets/Images/blue.jpg" ><h1>2</h1></button>
+
+                        <!-- assign random number to third gem -->
+                        <button id="button-3" class="btn btn-primary number" onClick="javascript:close_clip()"><img src="/Users/txivojuarezlap/Desktop/bootcamp copy/TECMON201804FSF2-Class-Repository-FSF/04-Week/Homework/unit-4-game/Assets/Images/yellow.jpg"><h1>3</h1></button>
+
+                        <!-- assign random number to forth gem-->
+                        <button id="button-4" class="btn btn-primary number" onClick="javascript:close_clip()"><img src="/Users/txivojuarezlap/Desktop/bootcamp copy/TECMON201804FSF2-Class-Repository-FSF/04-Week/Homework/unit-4-game/Assets/Images/green.jpg"><h1>4</h1></button>
+
+                        <br><br>
+
+
+                                                        <!-- operator buttons -->
+
+
+                        <!-- plus button -->
+                        <button id="button-plus" class="btn btn-danger operator" value="plus"><h1>+</h1></button>
+
+                        <!-- Equal button -->
+                        <button id="button-equal" class="btn btn-success equal" value="equals"><h1>=</h1></button>
+
+                        <!-- clear button -->
+                        <button id="button-clear" class="btn btn-dark clear" value="clear"><h1>clear</h1></button>
+                </div>
+        </div>
+</div>
+
+<!-- Result Panel -->
+<div class="col-lg-6">
+         <div class="card">
+                <h3 class="card-header">Number to beat:</h3>
+                        <div class="card-body">
+                                                <!-- has to be randomly generated -->
+                                                <h1 id="first-number"></h1>
+
+                        </div>
+
+                                        <h3 class="card-header">Number so far:</h3>
+                                        <div class="card-body">
+
+
+                                                
+                                                        <h1 id="second-number"></h1>
+
+                                                        <!-- adds both random number -->
+                                                        <h1 id="operator"></h1>
+                                                        <h1 id="result"></h1>      
+                                        </div>
+                                </div>
+
+
+                </div>
+
+                                       
+
+        </div>
+
+        
+</div>
+
+
+<script type="text/javascript">// end of javascript 
+
+
+        // begining of jQuery 
+
+$(document).ready(function() {
+
+
+
+
+// Your code here...
+
+//golbal variables
+var number1 = null;
+var number2 = null;
+var operator = null;
+var firstNumber = "";
+var secondNumber = "";
+var equal = null;
+
+$(".number").on("click", function (event) {
+
+if (operator != null && equal == null) {
+secondNumber = (secondNumber + event.target.innerText);
+
+number2 = secondNumber;
+$("#second-number");
+}
+
+
+else if (equal == null) {
+firstNumber = (firstNumber + event.target.innerText);
+console.log (firstNumber);
+number1 = firstNumber;
+$("#first-number").text(number1);
+}
+})
+
+
+
+
+
+
+$(".operator").on("click", function (event) {
+
+        if (equal == null && number1 != null) {
+        var ope = null;
+
+
+                 if (event.currentTarget.value == "random") {
+                        
+                                                if (number2 == null) {
+                                                $("#first-number").text(number1);
+                                                } 
+
+                                                else {
+                                                $("#second-number").text(number2);
+                                                }
+                }
+
+                        else {
+                        ope = event.target.innerText;
+                        operator = (event.currentTarget.value);     
+                        }
+        }
+})
+
+
+
+
+
+
+
+$(".equal").on("click", function() {
+var n1 = parseFloat(number1);
+var n2 = parseFloat(number2);
+
+        if (number1 != null && number2 != null) {
+                        
+                if (operator == "plus") {
+                
+                equal = n1 + n2;
+                $("#result").text(equal);
+                }
+
+        }
+})
+
+$(".clear").on("click", function() {
+$("#first-number").empty();
+$("#second-number").empty();
+$("#operator").empty();
+$("#result").empty();
+number1 = null;
+number2 = null;
+operator = null;
+firstNumber = "";
+secondNumber = "";
+equal = null;
+})
+
+});
+
+</script>
+
+</body>
