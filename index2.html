@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>jQuery Gem Game</title>
+
+
+<link rel="stylesheet" href="javascript.js">
+<!-- Added link to the jQuery Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Added a link to Bootstrap-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+</head>
+<body>
+
+
+<!-- Jumbotron for Title -->
+<div class="jumbotron">
+        <h1 class="text-center">Gem Game</h1>
+        
+        </div>
+        
+        <div class="container">
+        
+        <div class="row">
+        
+        <!-- Calculator Panel -->
+        <div class="col-lg-5">
+        <div class="card">
+        <h3 class="card-header">Krystal collector</h3>
+        
+        <div class="card-body">
+
+
+                         <!-- has to be randomly generated -->
+                         
+
+          <!-- assign random number to first gem-->
+          <img  id="oneC" src="file:///Users/txivojuarezlap/Desktop/bootcamp/TECMON201804FSF2-Class-Repository-FSF/04-Week/Homework/unit-4-game/Assets/Images/red.jpg">
+
+          <!-- assign random number to second gem-->
+          <img id="twoC"   src="/Users/txivojuarezlap/Desktop/bootcamp/TECMON201804FSF2-Class-Repository-FSF/04-Week/Homework/unit-4-game/Assets/Images/blue.jpg">
+
+          <!-- assign random number to third gem -->
+          <img id="threeC"  src="/Users/txivojuarezlap/Desktop/bootcamp/TECMON201804FSF2-Class-Repository-FSF/04-Week/Homework/unit-4-game/Assets/Images/green.jpg"/>
+
+          <!-- assign random number to forth gem-->
+          <img id="fourC" src="/Users/txivojuarezlap/Desktop/bootcamp/TECMON201804FSF2-Class-Repository-FSF/04-Week/Homework/unit-4-game/Assets/Images/yellow.jpg">
+
+                        <!-- Clear botton -->
+                <button id="button-clear" class="btn btn-dark clear" value="clear"><h1>clear</h1></button>
+
+
+
+            </div>
+        </div>
+</div>
+
+
+
+
+<div class="col-lg-6">
+        <div class="card">
+
+             <h1> Number to beat:</h1>  
+               <h3 id="firstNumber"class="card-header"></h3>
+                       <div class="card-body">
+                                          
+
+                       
+
+                                       <h3 id="firstNumber" class="card-header">Number so far:</h3>
+                                       <div class="card-body">
+
+
+                                               
+                                                       <h1 id="userSum"></h1>
+
+
+                                       </div>
+                         </div>
+
+
+               </div>
+
+                                        <p>Wins: <span id="Wins">0</span></p>  
+                                        <p>Losses: <span id="Losses">0</span></p>   
+
+       </div>
+
+       
+</div>
+
+
+
+
+
+
+
+
+        <script type="text/javascript">// end of javascript 
+
+var firstNumber = Math.floor((Math.random() *120) + 19 );
+console.log( "firstNumber" + firstNumber);
+
+     $("#firstNumber").text(firstNumber);
+
+
+//The other variables
+var oneC = Math.floor((Math.random() * 12) + 1);
+console.log( "#oneC" + oneC);
+$("#oneC").text(oneC);
+
+var twoC = Math.floor((Math.random() * 12) + 1);
+console.log( "#twoC" + twoC);
+
+var threeC = Math.floor((Math.random() * 12) + 1);
+console.log( "#threeC" + threeC);
+
+var fourC = Math.floor((Math.random() * 12) + 1);
+console.log( "#fourC" + fourC);
+
+var wins = 0;
+var losses = 0;
+var userSum = 0;
+
+
+//example of an on-click on a crystal
+//What do I want to happen when the user clicks on the crystal?
+
+
+//4)NOT ONLY BUTTONS ARE "CLICK-ABLE", YOU CAN MAKE TEXT, IMAGES, ETC ALSO BEHAVE IN A SIMILAR FASHION
+
+  $("#oneC").on("click", function() {
+
+    //add to the counter
+    userSum += oneC;
+    console.log(userSum);
+
+    //update the html
+    $("#userSum").text(userSum);
+
+    //the condition
+    if (userSum > firstNumber) {
+        alert ("You lose!");
+        //update variable
+        losses++;
+        //link javascript to html
+        $("#losses").text("You've lost " + losses + " times.");
+    }
+
+    else if (userSum === firstNumber){
+        alert ("You won!");
+        //update variable
+        wins++;
+        //link javascript to html
+        $("#wins").text(wins);
+    }
+
+  });
+
+
+        // second crystal
+
+  $("#twoC").on("click", function() {
+
+    //add to the counter
+    userSum += twoC;
+    console.log(userSum);
+
+    //update the html
+    $("#userSum").text(userSum);
+
+    //the condition
+    if (userSum > firstNumber) {
+        alert ("You lose!");
+        //update variable
+        losses++;
+        //link javascript to html
+        $("#losses").text(losses);
+    }
+
+    else if (userSum === firstNumber){
+        alert ("You won!");
+        //update variable
+        wins++;
+        //link javascript to html
+        $("#wins").text(wins);
+    }
+
+  });
+
+// third crystal
+
+$("#threeC").on("click", function() {
+
+    //add to the counter
+    userSum += threeC;
+    console.log(userSum);
+
+    //update the html
+    $("#userSum").text(userSum);
+
+    //the condition
+    if (userSum > firstNumber) {
+        alert ("You lose!");
+        //update variable
+        losses++;
+        //link javascript to html
+        $("#losses").text(losses);
+    }
+
+    else if (userSum === firstNumber){
+        alert ("You won!");
+        //update variable
+        wins++;
+        //link javascript to html
+        $("#wins").text(wins);
+    }
+
+  });
+
+//   fourth crystal
+
+$("#fourC").on("click", function() {
+
+    //add to the counter
+    userSum += fourC;
+    console.log(userSum);
+
+    //update the html
+    $("#userSum").text(userSum);
+
+    //the condition
+    if (userSum > firstNumber) {
+        alert ("You lose!");
+        //update variable
+        losses++;
+        //link javascript to html
+        $("#losses").text(losses);
+    }
+
+    else if (userSum === firstNumber){
+        alert ("You won!");
+        //update variable
+        wins++;
+        //link javascript to html
+        $("#wins").text(wins);
+    }
+
+
+    $(".clear").on("click", function() {
+        $("#oneC").empty();
+        $("#twoC").empty();
+        $("#threeC").empty();
+        $("#fourC").empty();
+        wins = null;
+        losses = null;
+        userSum  = null;
+        firstNumber = "";
+        
+        })
+
+
+
+
+
+
+  });   
+    </script>
+
+</body>

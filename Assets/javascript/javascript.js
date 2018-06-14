@@ -85,7 +85,7 @@ console.log(targetNumber);
 //2 parts: what the TARGET is, and what the UPDATE is
 //in this example; target is the html element with the id of "targetNumber", 
 //the update is to the text with the value specified in the bracket
-$("#targetNumber").text(targetNumber);
+$("#fistNumber").text(fistNumber);
 
 
 //The other variables
@@ -122,7 +122,7 @@ var userSum = 0;
     $("#userSum").text(userSum);
 
     //the condition
-    if (userSum >= targetNumber) {
+    if (userSum >= fistNumber) {
         alert ("You lose!");
         //update variable
         losses++;
@@ -130,7 +130,7 @@ var userSum = 0;
         $("#losses").text("You've lost " + losses + " times.");
     }
 
-    else if (userSum === targetNumber){
+    else if (userSum === fistNumber){
         alert ("You won!");
         //update variable
         wins++;
@@ -153,7 +153,7 @@ var userSum = 0;
     $("#userSum").text(userSum);
 
     //the condition
-    if (userSum >= targetNumber) {
+    if (userSum >= fistNumber) {
         alert ("You lose!");
         //update variable
         losses++;
@@ -161,7 +161,7 @@ var userSum = 0;
         $("#losses").text(losses);
     }
 
-    else if (userSum === targetNumber){
+    else if (userSum === fistNumber){
         alert ("You won!");
         //update variable
         wins++;
@@ -183,7 +183,7 @@ $("#threeC").on("click", function() {
     $("#userSum").text(userSum);
 
     //the condition
-    if (userSum >= targetNumber) {
+    if (userSum >= fistNumber) {
         alert ("You lose!");
         //update variable
         losses++;
@@ -191,7 +191,7 @@ $("#threeC").on("click", function() {
         $("#losses").text(losses);
     }
 
-    else if (userSum === targetNumber){
+    else if (userSum === fistNumber){
         alert ("You won!");
         //update variable
         wins++;
@@ -206,14 +206,14 @@ $("#threeC").on("click", function() {
 $("#fourC").on("click", function() {
 
     //add to the counter
-    userSum += fourCC;
+    userSum += fourC;
     console.log(userSum);
 
     //update the html
     $("#userSum").text(userSum);
 
     //the condition
-    if (userSum >= targetNumber) {
+    if (userSum >= fistNumber) {
         alert ("You lose!");
         //update variable
         losses++;
@@ -221,12 +221,29 @@ $("#fourC").on("click", function() {
         $("#losses").text(losses);
     }
 
-    else if (userSum === targetNumber){
+    else if (userSum === fistNumber){
         alert ("You won!");
         //update variable
         wins++;
         //link javascript to html
         $("#wins").text(wins);
     }
+
+
+    $(".clear").on("click", function() {
+        $("#oneC").empty();
+        $("#twoC").empty();
+        $("#threeC").empty();
+        $("#fourC").empty();
+        wins = null;
+        losses = null;
+        userSum  = null;
+        firstNumber = "";
+        
+        })
+
+
+
+
 
   });
